@@ -1,0 +1,24 @@
+.container {
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mat-card {
+  background-color: white;
+  color: blue;
+}
+
+.button {
+  margin-right: 5px;
+}
+
+.image {
+  max-width: 300px;
+}
+
+.example-card {
+  background-color: white;
+}
