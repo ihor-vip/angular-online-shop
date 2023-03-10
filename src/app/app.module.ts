@@ -16,6 +16,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from "@angular/common/http";
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -38,6 +41,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

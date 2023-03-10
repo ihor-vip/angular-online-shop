@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {IProducts} from "../models/products";
 import {Subscription} from "rxjs";
 import {ProductsService} from "../../services/products.service";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 
 @Component({
   selector: 'app-products',
@@ -14,7 +16,7 @@ export class ProductsComponent implements OnInit{
   canEdit: boolean = false;
   canView: boolean = false;
 
-  constructor(private productService: ProductsService) {
+  constructor(private productService: ProductsService, public dialog: MatDialog) {
   }
   ngOnInit(): void {
     this.canEdit = true;
@@ -22,6 +24,12 @@ export class ProductsComponent implements OnInit{
     this.productsSubscription = this.productService.getProducts().subscribe((data) => {
       this.products = data;
     })
+  }
+
+  openDialog(): void {
+    let dialogConfig = new MatDialogConfig()
+    dialogConfig.width = '700px';
+    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
   }
 
   ngOnDestroy() {
