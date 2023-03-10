@@ -4,6 +4,7 @@
      "id": 1,
      "title": "MacBook Pro",
      "price": 2500,
+     "year": "2022",
      "image": "assets/images/macbook.jpg",
      "configure": {
        "chip": "M2",
@@ -16,6 +17,7 @@
      "id": 2,
      "title": "MacBook Pro",
      "price": 1100,
+     "year": "2021",
      "image": "assets/images/macbook.jpg",
      "configure": {
        "chip": "Intel",
