@@ -34,6 +34,6 @@
     <input matInput formControlName="display" placeholder="Display">
   </mat-form-field>
 
-  <button class="button" mat-flat-button style="margin-right: 5px" color="primary" type="submit">Ad to Basket</button>
+  <button class="button" mat-flat-button style="margin-right: 5px" color="primary" type="submit">{{isNew ? 'Ad to Basket' : 'Edit'}}</button>
   <button class="button" mat-flat-button color="primary" (click)="onNoClick()" type="button">Cancel</button>
 </form>

@@ -10,7 +10,7 @@ import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit{
+export class ProductsComponent implements OnInit {
   products!: IProducts[];
   productsSubscription!: Subscription;
   canEdit: boolean = false;
@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit{
 
   constructor(private productService: ProductsService, public dialog: MatDialog) {
   }
+
   ngOnInit(): void {
     this.canEdit = true;
 
@@ -26,21 +27,34 @@ export class ProductsComponent implements OnInit{
     })
   }
 
-  openDialog(): void {
+  openDialog(product?: IProducts): void {
     let dialogConfig = new MatDialogConfig()
     dialogConfig.width = '400px';
     dialogConfig.disableClose = true;
+    dialogConfig.data = product
 
     const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((data) => {
-      if(data)
-      this.postData(data)
+      if (data && data.id)
+        this.updateData(data)
+       else
+        this.postData(data)
+
     })
   }
 
   postData(data: IProducts) {
     this.productService.postProduct(data).subscribe((data) => this.products.push(data));
+  }
+
+  updateData(product: IProducts) {
+    this.productService.updateProduct(product).subscribe((data) => {
+      this.products = this.products.map((product) => {
+        if (product.id === data.id) return data;
+        else return product
+      })
+    });
   }
 
   ngOnDestroy() {
@@ -51,8 +65,8 @@ export class ProductsComponent implements OnInit{
     this.productService.deleteProduct(id).subscribe(() => this.products.find((item) => {
       if (id === item.id) {
         let idx = this.products.findIndex((item) => item.id === id)
-        this.products.splice(idx,1)
+        this.products.splice(idx, 1)
       }
-    }) )
+    }))
   }
 }
