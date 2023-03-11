@@ -47,7 +47,8 @@ export class ProductsComponent implements OnInit{
   deleteItem(id: number) {
     this.productService.deleteProduct(id).subscribe(() => this.products.find((item) => {
       if (id === item.id) {
-        this.products.splice(0,1)
+        let idx = this.products.findIndex((item) => item.id === id)
+        this.products.splice(idx,1)
       }
     }) )
   }
