@@ -1,11 +1,39 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" placeholder="Title">
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput formControlName="price" placeholder="Price">
   </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Year</mat-label>
+    <input matInput formControlName="year" placeholder="Year">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Chip</mat-label>
+    <input matInput formControlName="chip" placeholder="Chip">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>SSD</mat-label>
+    <input matInput formControlName="ssd" placeholder="SSD">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Memory</mat-label>
+    <input matInput formControlName="memory" placeholder="Memory">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Display</mat-label>
+    <input matInput formControlName="display" placeholder="Display">
+  </mat-form-field>
+
+  <button class="button" mat-flat-button style="margin-right: 5px" color="primary" type="submit">Ad to Basket</button>
+  <button class="button" mat-flat-button color="primary" (click)="onNoClick()">Cancel</button>
 </form>
