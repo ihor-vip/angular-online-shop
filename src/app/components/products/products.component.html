@@ -2,7 +2,7 @@
   <mat-toolbar color="primary" *ngIf="canEdit">
     <mat-toolbar-row>
       <span class="example-spacer"></span>
-      <button class="button" mat-flat-button (click)="openDialog()">Add to Basket</button>
+      <button class="button" mat-flat-button (click)="openDialog()">Add to Product</button>
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -14,7 +14,7 @@
       <p>Year: {{product.year}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button class="button" mat-flat-button color="primary">Add to Basket</button>
+      <button class="button" mat-flat-button color="primary" (click)="addToBasket(product)" type="button">Add to Basket</button>
       <button class="button" mat-flat-button color="primary" [routerLink]="['/product', product.id]">Description
       </button>
       <button class="button" mat-flat-button color="primary" [matMenuTriggerFor]="menu">Edit</button>

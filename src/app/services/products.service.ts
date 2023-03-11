@@ -7,6 +7,7 @@ import {IProducts} from "../components/models/products";
 })
 export class ProductsService {
   private url: string = 'http://localhost:3000/products'
+  private urlBasket: string = 'http://localhost:3000/basket'
 
   constructor(private http: HttpClient) {
   }
@@ -29,5 +30,21 @@ export class ProductsService {
 
   updateProduct(product: IProducts) {
     return this.http.put<IProducts>(`${this.url}/${product.id}`, product)
+  }
+
+  postProductToBasket(product: IProducts) {
+    return this.http.post<IProducts>(this.urlBasket, product)
+  }
+
+  getProductFromBasket() {
+    return this.http.get<IProducts[]>(this.urlBasket)
+  }
+
+  updateProductToBasket(product: IProducts) {
+    return this.http.put<IProducts>(`${this.urlBasket}/${product.id}`, product)
+  }
+
+  deleteProductFromBasket(id: number) {
+    return this.http.delete<IProducts>(`${this.urlBasket}/${id}`)
   }
 }
