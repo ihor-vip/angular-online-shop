@@ -19,6 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

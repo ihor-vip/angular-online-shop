@@ -44,4 +44,11 @@ export class ProductsComponent implements OnInit{
     if (this.productsSubscription) this.productsSubscription.unsubscribe();
   }
 
+  deleteItem(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => this.products.find((item) => {
+      if (id === item.id) {
+        this.products.splice(0,1)
+      }
+    }) )
+  }
 }
